@@ -1,13 +1,16 @@
 import React from "react";
 import { useAuth } from "../hooks/useAuth";
+import { useSummary } from "../context/SummaryContext";
 import toast from "react-hot-toast";
 import BookmarkIcon from "../icons/BookmarkIcon";
 import DeleteIcon from "../icons/DeleteIcon";
+import SummarizeIcon from "../icons/SummarizeIcon";
 import historyService from "../api/historyService";
 import "./ArticleCard.css";
 
 const ArticleCard = ({ article, isSaved, onToggleBookmark, showActions = { bookmark: true, delete: false }, onDelete }) => {
   const { user } = useAuth();
+  const { fetchSummary } = useSummary(); 
 
   const formattedDate = new Date(article.publishedAt).toLocaleDateString(
     "en-US",
@@ -55,6 +58,16 @@ const ArticleCard = ({ article, isSaved, onToggleBookmark, showActions = { bookm
     onToggleBookmark(article, isSaved);
   };
 
+  const handleSummarizeClick = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    if (article.content) {
+      fetchSummary(article.content);
+    } else {
+      toast.error("Sorry, the full content for this article is unavailable for summarization.");
+    }
+  };
+
   return (
     <a
       href={article.url}
@@ -92,6 +105,12 @@ const ArticleCard = ({ article, isSaved, onToggleBookmark, showActions = { bookm
               {article.author || "Unknown Author"}
             </span>
             <span className="article-date">{formattedDate}</span>
+            {user && (
+              <button className="summarize-button" onClick={handleSummarizeClick}>
+                <SummarizeIcon />
+                <span>Summarize</span>
+              </button>
+            )}
           </div>
         </div>
       </div>

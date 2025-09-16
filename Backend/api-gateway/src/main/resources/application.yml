@@ -21,14 +21,19 @@ spring:
             allow-credentials: true
       # --- END OF NEW SECTION ---
       routes:
-        - id: news-service
-          uri: lb://news-service
-          predicates:
-            - Path=/api/news/**
+         - id: ai-summary-service
+           uri: lb://ai-summary-service
+           predicates:
+             - Path=/api/ai/**
 
-        - id: user-auth-service
-          uri: lb://user-auth-service
-          predicates:
+         - id: news-service
+           uri: lb://news-service
+           predicates:
+            - Path=/api/news/**
+         
+         - id: user-auth-service
+           uri: lb://user-auth-service
+           predicates:
             - Path=/api/auth/**, /api/bookmarks/**, /api/users/**, /api/history/**
 eureka:
   client:

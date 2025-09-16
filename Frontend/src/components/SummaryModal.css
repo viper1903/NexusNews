@@ -1,0 +1,89 @@
+.summary-modal-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 90%;
+  max-width: 450px;
+  /* --- Dark Background --- */
+  background-image: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
+  color: #cbd5e0; /* Default light text color */
+  border-radius: 12px;
+  border: 1px solid #4a5568; /* Darker border */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  z-index: 1000;
+  animation: slideUp 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  overflow: hidden;
+}
+
+.summary-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1.25rem;
+  /* --- Dark Header --- */
+  background-color: rgba(255, 255, 255, 0.05); /* Slightly transparent for depth */
+  border-bottom: 1px solid #4a5568;
+}
+
+.summary-modal-title-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  /* --- Light Title --- */
+  color: #e2e8f0;
+}
+
+.summary-modal-title {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.summary-modal-close-button {
+  background: none;
+  border: none;
+  font-size: 1.75rem;
+  line-height: 1;
+  cursor: pointer;
+  /* --- Light Close Button --- */
+  color: #a0aec0;
+  padding: 0;
+  transition: color 0.2s;
+}
+
+.summary-modal-close-button:hover {
+  color: #ffffff;
+}
+
+.summary-modal-body {
+  padding: 1.25rem;
+  min-height: 200px;
+  max-height: 400px;
+  overflow-y: auto;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.summary-text {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  font-family: inherit;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  /* --- Light Summary Text --- */
+  color: #cbd5e0;
+  text-align: left;
+  width: 100%;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

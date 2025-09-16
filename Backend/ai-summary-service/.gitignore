@@ -33,4 +33,4 @@ build/
 .vscode/
 
 # Ignore the properties file to protect secret API keys
-/src/main/resources/application.yml
+/src/main/resources/application.properties
