@@ -51,10 +51,10 @@ public class NewsServiceImpl implements NewsService {
 
 			System.out.println("Fetching news for category: " + category + " from sources: " + sources);
 
-//			String url = String.format("https://newsapi.org/v2/top-headlines?sources=%s&apiKey=%s", sources, apiKey);
-			String url = String.format(
-					"https://newsapi.org/v2/everything?q=%s&language=en&sortBy=publishedAt&apiKey=%s", category,
-					apiKey);
+			String url = String.format("https://newsapi.org/v2/top-headlines?sources=%s&apiKey=%s", sources, apiKey);
+//			String url = String.format(
+//					"https://newsapi.org/v2/everything?q=%s&language=en&sortBy=publishedAt&apiKey=%s", category,
+//					apiKey);                 // this should be used (optional) when you don't have to deploy your application
 
 			NewsResponseDto response = webClient.get().uri(url).retrieve().bodyToMono(NewsResponseDto.class).block();
 
@@ -100,7 +100,6 @@ public class NewsServiceImpl implements NewsService {
 		return articleRepository.findByCategory(category, pageable);
 	}
 
-	@Scheduled(cron = "0 0 * * * *")
 	public void fetchNewsPeriodically() {
 		System.out.println("Running scheduling job: Fetching news....");
 		fetchAndSaveNews();
