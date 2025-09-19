@@ -1,16 +1,16 @@
-# Stage 1: Build the application using Maven
-FROM maven:3.8.5-openjdk-17 AS build
+# Stage 1: Build the application using a Maven image that includes Java 21
+# This line is updated to match our project's Java version
+FROM maven:3.9.6-eclipse-temurin-21 AS build
 WORKDIR /app
 COPY pom.xml .
 COPY src ./src
 RUN mvn clean package -DskipTests
 
-# Stage 2: Create the final, smaller image to run the application
-FROM openjdk:21-jre-slim
+# Stage 2: Create the final, smaller image using an official, lightweight Java 21 runtime
+# This line is updated to a correct and optimized image name
+FROM amazoncorretto:21-jre-alpine
 WORKDIR /app
 COPY --from=build /app/target/*.jar app.jar
-EXPOSE 8080 
-# Note: Render ignores the EXPOSE port and uses its own internal networking.
 
-# This command will be overridden by Render's Start Command
-ENTRYPOINT ["java", "-jar", "app.jar"]
+# This command will be used by Render to start the application
+ENTRYPOINT ["java","-jar","app.jar"]
