@@ -26,7 +26,7 @@ const Navbar = () => {
   return (
     <header className="navbar-header">
       <div className="navbar-container">
-        <Link to="/" className="navbar-brand">NewsPortal</Link>
+        <Link to="/" className="navbar-brand">Nexus News Portal</Link>
         <div className="navbar-actions">
           {user ? (
             <div className="user-menu-container" ref={dropdownRef}>

@@ -12,7 +12,6 @@ export const SummaryProvider = ({ children }) => {
   const [summaryError, setSummaryError] = useState('');
 
   const fetchSummary = async (articleContent) => {
-    // Open the window and show loading state immediately
     setIsSummaryOpen(true);
     setIsLoadingSummary(true);
     setSummaryError('');

@@ -13,7 +13,6 @@ const SummaryModal = () => {
     closeSummary,
   } = useSummary();
 
-  // If the modal isn't open, render nothing.
   if (!isSummaryOpen) {
     return null;
   }
@@ -32,7 +31,6 @@ const SummaryModal = () => {
       <div className="summary-modal-body">
         {isLoadingSummary && <Spinner />}
         {summaryError && <p className="error-message">{summaryError}</p>}
-        {/* We use a <pre> tag to preserve the line breaks and formatting from the AI's response */}
         {summaryContent && <pre className="summary-text">{summaryContent}</pre>}
       </div>
     </div>

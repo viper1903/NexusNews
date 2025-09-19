@@ -20,8 +20,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 0.75rem 1.25rem;
-  /* --- Dark Header --- */
-  background-color: rgba(255, 255, 255, 0.05); /* Slightly transparent for depth */
+  background-color: rgba(255, 255, 255, 0.05); 
   border-bottom: 1px solid #4a5568;
 }
 
@@ -29,7 +28,6 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  /* --- Light Title --- */
   color: #e2e8f0;
 }
 
