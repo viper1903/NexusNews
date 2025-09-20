@@ -31,6 +31,3 @@ build/
 
 ### VS Code ###
 .vscode/
-
-# Ignore the properties file to protect secret API keys
-/src/main/resources/application.properties
