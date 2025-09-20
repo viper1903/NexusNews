@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-// Note: The base URL is now for the news service endpoint via the gateway
-const API_URL = 'http://localhost:8088/api/news';
+// const API_URL = 'http://localhost:8088/api/news';
+const API_URL = 'https://api-gateway-u59l.onrender.com/api/news';
 
 // Fetches a page of articles
 const getArticles = (page = 0, size = 9) => {

@@ -1,6 +1,7 @@
 import axios from 'axios';
 
-const API_URL = 'http://localhost:8088/api/ai';
+// const API_URL = 'http://localhost:8088/api/ai';
+const API_URL = 'https://api-gateway-u59l.onrender.com/api/ai';
 
 /**
  * Sends article content to the backend to get a summary.

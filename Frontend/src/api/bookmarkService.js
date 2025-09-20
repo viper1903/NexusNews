@@ -1,7 +1,8 @@
 import axios from 'axios';
 
 // The base URL for our user-auth-service endpoints via the gateway
-const API_URL = 'http://localhost:8088/api/bookmarks';
+// const API_URL = 'http://localhost:8088/api/bookmarks';
+const API_URL = 'https://api-gateway-u59l.onrender.com/api/bookmarks';
 
 // Gets all bookmark details for the logged-in user
 const getBookmarks = () => {

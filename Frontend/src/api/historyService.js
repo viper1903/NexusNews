@@ -1,6 +1,7 @@
 import axios from 'axios';
 
-const API_URL = 'http://localhost:8088/api/history';
+// const API_URL = 'http://localhost:8088/api/history';
+const API_URL = 'https://api-gateway-u59l.onrender.com/api/history';
 
 // Logs that a user has viewed an article
 const logArticleView = (articleData) => {
