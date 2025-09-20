@@ -9,6 +9,10 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 public class NewsPortalApplication {
 
 	public static void main(String[] args) {
+		
+		System.out.println("EUREKA_URL_FROM_ENV = " + System.getenv("EUREKA_CLIENT_SERVICE-URL_DEFAULTZONE"));
+		
+		
 		SpringApplication.run(NewsPortalApplication.class, args);
 	}
 
